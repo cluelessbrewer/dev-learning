@@ -5,6 +5,7 @@
 // Removes old branches from Git but does not delete them
 // git branch -d "add-html-fo"
 // 'branch -d' Will delete the branch from vscode
+// Note: Will need to close and reopen vscode.
 
 
 // You merge. That is actually quite simple, and a perfectly local operation:
@@ -42,6 +43,27 @@
 //  \                 \
 //   \-- E --- F --- G +-- H <-- b1
 
+// https://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master
+// So, when we suspect there would some conflicts, we can have following git operations:
 
-// Deletes branch so it does not appear in vscode.
-// Note: Will need to close and reopen vscode.
+// git checkout test
+// git pull 
+// git checkout master
+// git pull
+// git merge --no-ff --no-commit test
+
+
+// PS C:\Users\Home\Documents\003 Development\GitHub\dev-learning> git rebase master
+// First, rewinding head to replay your work on top of it...
+// Fast-forwarded New-Learnings to master.
+// PS C:\Users\Home\Documents\003 Development\GitHub\dev-learning> git log ..New-Learnings
+// commit b745c4a04b55fa3f1764caee70da91ecd546d6ee (origin/New-Learnings, New-Learnings)
+// Author: cbrewer <cluelessbrewer@gmail.com>
+// Date:   Mon Nov 5 17:09:26 2018 +0000
+
+//     Git merge and rebase code examples
+// PS C:\Users\Home\Documents\003 Development\GitHub\dev-learning> git merge New-Learnings
+// Updating 247ed1b..b745c4a
+// Fast-forward
+//  commands.cs | 42 ++++++++++++++++++++++++++++++++++++++++--
+//  1 file changed, 40 insertions(+), 2 deletions(-)
